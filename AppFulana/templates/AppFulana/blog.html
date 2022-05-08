@@ -1,0 +1,67 @@
+{% extends "AppFulana/padre.html" %}
+{% load static %}
+{% block contenidoModificable %}
+</header>
+<!-- #masthead -->
+<div id="content" class="site-content">
+    <div id="primary" class="content-area column two-thirds">
+        <main id="main" class="site-main" role="main">
+        <div class="grid bloggrid">
+            {% for posteo in object_list %}
+            <article>
+            <header class="entry-header">
+            <h1 class="entry-title"><a href="{% url 'PostIndividual' posteo.id %}" rel="bookmark">{{ posteo.tituloPosteo }}</a></h1>
+            <div class="entry-meta">
+                <span class="posted-on"><time class="entry-date published">{{ posteo.fechaPosteo }}</time></span>						
+            </div>
+            </header>
+            <div class="entry-summary">
+                <p>
+                    ACA VA A IR TEXTO CORTO Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nemo facilis maiores a fugiat non magni obcaecati sed numquam aperiam saepe explicabo autem corrupti dolor, eligendi sit repellendus quia iure. <a class="more-link" href="{% url 'PostIndividual' posteo.id %}">Leer más</a>
+                </p>
+            </div>
+            <footer class="entry-footer">
+            <span class="cat-links">
+            Posteado por <a href="#" rel="category tag">{{posteo.autorPosteo}}</a>
+            </span>
+            </footer>
+            </article>
+            {% endfor %}
+
+        </div>
+        <div class="clearfix">
+        </div>
+        <nav class="pagination"></nav>
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
+    
+    <div id="secondary" class="column third">
+        <div id="sidebar-1" class="widget-area" role="complementary">
+                
+            <aside id="recent-posts-2" class="widget widget_recent_entries">
+            <h4 class="widget-title">Lista posteos</h4>
+            <ul>{% for posteo in object_list %}
+                <li>
+                <a href="{% url 'PostIndividual' posteo.id %}">{{ posteo.tituloPosteo }}</a>
+                </li>
+                {%endfor%}
+                <br>
+                <li>
+                <a href="#">Todos los posteos</a>
+                </li>
+            </ul>
+            </aside>
+
+
+        </div>
+        <!-- .widget-area -->
+    </div>
+    <!-- #secondary -->
+</div>
+<!-- #content -->
+</div>
+
+<!-- #page -->
+{% endblock %}

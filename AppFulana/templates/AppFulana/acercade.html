@@ -1,0 +1,33 @@
+{% extends "AppFulana/padre.html" %}
+{% load static %}
+{% block contenidoModificable %}
+</header>
+<!-- #masthead -->
+<div id="content" class="site-content">
+    <div id="primary" class="content-area column full">
+        <main id="main" class="site-main">
+        
+        <article class="hentry">
+        <header class="entry-header">
+        <h1 class="entry-title">Acerca de mi</h1>	
+        </header>
+        <!-- .entry-header -->
+
+        <div class="entry-content">
+        <p><img style="border:10px solid #f4f5f6" src="{%static 'AppFulana/images/woman-5660790_960_720.webp' %}" alt="woman" width="430" class="alignleft"></p>
+        <p>Hola!! Cómo están? Este proyecto de "blog" tiene su inicio en Instagram, pero haciendo el curso de Python en CoderHouse la idea es de a poco llevarlo a un sitio hecho por mi.</p>
+        <p>Estoy usando Python, Django, DB Browser, y le agradezco los templates de html a <a href="https://plantillashtmlgratis.com/" target="_blank">https://plantillashtmlgratis.com/</a>.</p>
+        <h2 style="font-family: 'Herr Von Muellerhoff';color:#ccc;font-weight:300;">Saludos, Fulana</h2>
+        </div><!-- .entry-content -->
+        </article>
+        
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
+</div>
+<!-- #content -->
+</div>
+<!-- .container -->
+
+{% endblock %}

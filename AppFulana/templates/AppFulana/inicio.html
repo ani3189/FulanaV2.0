@@ -1,0 +1,37 @@
+{% extends "AppFulana/padre.html" %}
+{% load static %}
+{% block contenidoModificable %}
+</header>
+<!-- #masthead -->
+<div id="content" class="site-content">
+    <div id="primary" class="content-area column full">
+        <main id="main" class="site-main">
+        
+        <article class="hentry">
+        <header class="entry-header">
+        {% if user.is_authenticated %}
+        <h1 class="entry-title">HOLA {{user}}</h1>	        
+        {%else%}
+        <h1 class="entry-title">Hola cómo están?</h1>	
+        {%endif%}
+        </header>
+        <!-- .entry-header -->
+
+        <div class="entry-content">
+        <p><img style="border:10px solid #f4f5f6" src="{%static 'AppFulana/images/woman-5660790_960_720.webp' %}" alt="woman" width="430" class="alignright"></p>
+        <p>Desde septiembre 2021 estoy aprendiendo a programar. La idea de armar este espacio es poner en práctica uno de los miles de consejos que me dieron. Cuál? Explicá lo que aprendes! Es una forma de incorporar el conocimiento. Así que acá estoy, una fulana más metiéndose en este mundo que tiene mucho de elige tu propia aventura, en su nuevo capítulo.</p>
+        <p>No sólo voy a tratar de explicar las cosas que aprendo, también voy a contar experiencias a modo de "blog". Seguramente como desahogo pero espero que de alguna forma, ayude en su propia aventura a les que me lean.</p>
+        <h2 style="font-family: 'Herr Von Muellerhoff';color:#ccc;font-weight:300;">Saludos, Fulana</h2>
+        </div><!-- .entry-content -->
+        </article>
+        
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
+</div>
+<!-- #content -->
+</div>
+<!-- .container -->
+
+{% endblock %}

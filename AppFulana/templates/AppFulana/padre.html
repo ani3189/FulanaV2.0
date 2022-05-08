@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FulanaBlog</title>
+<link rel='stylesheet' href='{%static "AppFulana/css/woocommerce-layout.css" %}' type='text/css' media='all'/>
+<link rel='stylesheet' href='{%static "AppFulana/css/woocommerce-smallscreen.css" %}' type='text/css' media='only screen and (max-width: 768px)'/>
+<link rel='stylesheet' href='{%static "AppFulana/css/woocommerce.css" %}' type='text/css' media='all'/>
+<link rel='stylesheet' href='{%static "AppFulana/css/font-awesome.min.css" %}' type='text/css' media='all'/>
+<link rel='stylesheet' href='{%static "AppFulana/style.css" %}' type='text/css' media='all'/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
+<link rel='stylesheet' href='{%static "AppFulana/css/easy-responsive-shortcodes.css" %}' type='text/css' media='all'/>
+</head>
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+<div id="page">
+	<div class="container">
+		<header id="masthead" class="site-header">
+		<div class="site-branding">
+			<h1 class="site-title"><a href="#" rel="home">- F u l a n a -</a></h1>
+			<h2 class="site-description">Una fulana aprendiendo a programar</h2>
+			<div>
+				{% if user.is_authenticated %}
+				<a href="{% url 'CerrarSesion' %}"}>Cerrar sesion</a> | <a href="#">Editar Perfil</a>
+                {%else%}	
+				<a href="{% url 'InicioSesion' %}"}>Iniciar sesion</a> | <a href="#">Registrate</a>
+				{%endif%}
+			</div>
+		</div>
+		<nav id="site-navigation" class="main-navigation">
+		<button class="menu-toggle">Menu</button>
+		<div class="menu-menu-1-container">
+			<ul id="menu-menu-1" class="menu">
+				<li><a href="{% url 'Inicio' %}">Inicio</a></li>
+				<li><a href="{% url 'Blog' %}">Blog</a></li>
+				<li><a href="{% url 'PruebasTemplate' %}">Pruebas Template</a></li>
+				<li><a href="{% url 'AcercaDe' %}">Acerca de</a></li>
+				<li><a>Posteos</a>
+				<ul class="sub-menu">
+					<li><a href="{% url 'TodosLosPosteos' %}">Todos los posteos</a></li>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'TodosMisPosteos' %}">Todos mis posteos</a></li>
+					{%else%}
+					{%endif%}
+					<li><a href="#">Nuevo posteo</a></li>
+				</ul>
+				</li>
+				<li><a href="#">Shop</a></li>
+				<li><a href="#">Contact</a></li>
+				
+			</ul>
+		</div>
+		</nav>
+		</header>
+        {% block contenidoModificable %}
+
+        {% endblock %}
+	<footer id="colophon" class="site-footer">
+	<div class="container">
+		<div class="site-info">
+			<h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">- F u l a n a -</h1>
+			 <a target="blank" href="{% url 'Inicio' %}">© 2022 All Rights Reserved. Fulana - Blog</a>
+		</div>
+	</div>	
+	</footer>
+	<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
+</div>
+<!-- #page -->
+<script src='{%static "AppFulana/js/jquery.js" %}'></script>
+<script src='{%static "AppFulana/js/plugins.js" %}'></script>
+<script src='{%static "AppFulana/js/scripts.js" %}'></script>
+<script src='{%static "AppFulana/js/masonry.pkgd.min.js" %}'></script>
+</body>
+</html>

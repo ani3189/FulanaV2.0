@@ -1,0 +1,42 @@
+{% extends "AppFulana/padre.html" %}
+{% load static %}
+{% block contenidoModificable %}
+</header>
+<!-- #masthead -->
+<div id="content" class="site-content">
+    <div id="primary" class="content-area column two-thirds">
+        <main id="main" class="site-main">
+        
+        <article class="hentry">
+        <header class="entry-header">
+        <h1 class="entry-title">HOLA, ESTOS SON LOS POSTEOS QUE CONTIENEN {{palabra}}: </h1>
+        </header>
+        <!-- .entry-header -->
+
+        <div class="entry-content">
+        <p>
+            <ul>{% if posteos %}
+                {% for posteo in posteos %}
+                <li>
+                    <a href="{% url 'PostIndividual' posteo.id %}"><p>{{posteo.tituloPosteo}}, {{posteo.autorPosteo}}, {{posteo.fechaPosteo}}</p></a>
+                </li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </p>
+        <h2 style="font-family: 'Herr Von Muellerhoff';color:#ccc;font-weight:300;">Saludos, Fulana</h2>
+        </div><!-- .entry-content -->
+        </article>
+        
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
+
+    </div>
+</div>
+<!-- #content -->
+</div>
+<!-- .container -->
+
+{% endblock %}
