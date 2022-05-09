@@ -10,7 +10,8 @@ urlpatterns = [
     path(r'^(?P<pk>\d+)$', views.PostIndividual.as_view(), name='PostIndividual'),
     path('inicioSesion', views.inicio_sesion, name='InicioSesion'),
     path('cerrarSesion', LogoutView.as_view(template_name='AppFulana/cerrarSesion.html'), name='CerrarSesion'),
-    path('TodosMisPosteos', views.TodosMisPosteos.as_view(), name='TodosMisPosteos'),
+    path('TodosMisPosteos/', views.TodosMisPosteos.as_view(), name='TodosMisPosteos'),
     path('TodosLosPosteos/', views.TodosLosPosteos.as_view(), name='TodosLosPosteos'),
     path('buscarPosteo/', views.buscarPosteo),
+    path(r'^nuevo$', views.NuevoPosteo.as_view(), name='NuevoPosteo'),
 ]

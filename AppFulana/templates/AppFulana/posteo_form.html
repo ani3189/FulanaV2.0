@@ -9,21 +9,17 @@
         
         <article class="hentry">
         <header class="entry-header">
-        <h1 class="entry-title">HOLA, {{user}} ESTOS SON TUS POSTEOS: </h1>	        
+        <h1 class="entry-title">HORA DE UN NUEVO POST!</h1>	
         </header>
         <!-- .entry-header -->
 
         <div class="entry-content">
-        <p><a href="{% url 'NuevoPosteo' %}">>>>Nuevo posteo>>></a></p>
         <p>
-            <ul>{%for posteo in object_list%}
-                <li>
-                <p>{{posteo.tituloPosteo}}</p>
-                </li>
-                {%endfor%}
-            </ul>
+            <form method="post">{%csrf_token%}
+                {{form.as_p}}
+                <input type="submit", value="publicar">
+            </form>
         </p>
-
         <h2 style="font-family: 'Herr Von Muellerhoff';color:#ccc;font-weight:300;">Saludos, Fulana</h2>
         </div><!-- .entry-content -->
         </article>

@@ -41,7 +41,7 @@ def blog(request):
     return render (request, "AppFulana/blog.html")
 
 def acercaDe(request):
-    return render (request, "AppFulana/acercade.html")
+    return render (request, "AppFulana/acercaDe.html")
 
 class BlogVista (ListView):
     model = Posteo
@@ -54,6 +54,11 @@ class PostIndividual (DetailView):
 class TodosMisPosteos (LoginRequiredMixin, ListView):
     model = Posteo
     template_name = "AppFulana/todosMisPosteos.html"
+
+class NuevoPosteo (LoginRequiredMixin, CreateView):
+    model = Posteo
+    success_url = "/AppFulana/TodosMisPosteos/"
+    fields = ['fechaPosteo','tituloPosteo', 'autorPosteo', 'bodyPosteo']
 
 class TodosLosPosteos (ListView):
     model = Posteo

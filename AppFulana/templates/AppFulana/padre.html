@@ -41,13 +41,13 @@
 					<li><a href="{% url 'TodosLosPosteos' %}">Todos los posteos</a></li>
 					{% if user.is_authenticated %}
 					<li><a href="{% url 'TodosMisPosteos' %}">Todos mis posteos</a></li>
+					<li><a href="{% url 'NuevoPosteo' %}">Nuevo posteo</a></li>
 					{%else%}
 					{%endif%}
-					<li><a href="#">Nuevo posteo</a></li>
+
 				</ul>
 				</li>
-				<li><a href="#">Shop</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="#">Contacto</a></li>
 				
 			</ul>
 		</div>
