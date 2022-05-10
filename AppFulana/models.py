@@ -14,4 +14,3 @@ class Posteo (models.Model):
     def __str__(self):
         txt = "{0} - {1}"
         return txt.format(self.tituloPosteo, self.autorPosteo)
-

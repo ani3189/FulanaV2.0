@@ -16,11 +16,13 @@
         <div class="entry-content">
         <p><a href="{% url 'NuevoPosteo' %}">>>>Nuevo posteo>>></a></p>
         <p>
+            {%if user %}
             <ul>{%for posteo in object_list%}
                 <li>
                 <p>{{posteo.tituloPosteo}}</p>
                 </li>
                 {%endfor%}
+            {%endif%}
             </ul>
         </p>
 

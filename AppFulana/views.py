@@ -54,8 +54,10 @@ class PostIndividual (DetailView):
 class TodosMisPosteos (LoginRequiredMixin, ListView):
     model = Posteo
     template_name = "AppFulana/todosMisPosteos.html"
+    def get_queryset(self):
+        return Posteo.objects.filter(autorPosteo=self.request.user)
 
-class NuevoPosteo (LoginRequiredMixin, CreateView):
+class NuevoPosteo (LoginRequiredMixin, CreateView, User):
     model = Posteo
     success_url = "/AppFulana/TodosMisPosteos/"
     fields = ['fechaPosteo','tituloPosteo', 'autorPosteo', 'bodyPosteo']
