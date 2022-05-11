@@ -6,6 +6,7 @@ Profe - profecoder
 Falta habilitar:
 - Comentarios
 - Registrate
+- Buscar por autor de posteo
 - Editar y eliminar posteos
 - Editar usuario
 - Contacto
