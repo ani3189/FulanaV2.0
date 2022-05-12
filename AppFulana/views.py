@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from .forms import PosteoForm
 
 # Create your views here.
 
@@ -59,12 +59,21 @@ class TodosMisPosteos (LoginRequiredMixin, ListView):
 
 class NuevoPosteo (LoginRequiredMixin, CreateView, User):
     model = Posteo
+    form_class = PosteoForm
     success_url = "/AppFulana/TodosMisPosteos/"
-    fields = ['fechaPosteo','tituloPosteo', 'autorPosteo', 'bodyPosteo']
 
 class TodosLosPosteos (ListView):
     model = Posteo
     template_name = "AppFulana/todosLosPosteos.html"
+
+class EditarPosteo (LoginRequiredMixin, UpdateView):
+    model = Posteo
+    success_url = "/AppFulana/TodosMisPosteos/"
+    fields = ['fechaPosteo','tituloPosteo','bodyPosteo']
+
+class EliminarPosteo (DeleteView):
+    model = Posteo
+    success_url = "/AppFulana/TodosMisPosteos/"
 
 def busquedaPosteo (request):
     return render (request, "AppFulana/todosLosPosteos.html")

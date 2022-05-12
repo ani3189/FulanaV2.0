@@ -1,5 +1,6 @@
 {% extends "AppFulana/padre.html" %}
 {% load static %}
+{% block title %} - Posteos{% endblock %}
 {% block contenidoModificable %}
 </header>
 <!-- #masthead -->
@@ -19,7 +20,11 @@
             {%if user %}
             <ul>{%for posteo in object_list%}
                 <li>
-                <p>{{posteo.tituloPosteo}}</p>
+                <p>{{posteo.tituloPosteo}} <br>
+                    <a href="{% url 'PostIndividual' posteo.id %}">Ver</a> | 
+                    <a href="{% url 'Editar' posteo.id %}">Editar</a> | 
+                    <a href="{% url 'Eliminar' posteo.id %}">Eliminar</a>
+                </p>
                 </li>
                 {%endfor%}
             {%endif%}
