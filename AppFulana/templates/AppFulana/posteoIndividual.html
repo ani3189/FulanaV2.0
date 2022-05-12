@@ -11,7 +11,12 @@
 				<h1 class="entry-title">{{ posteo.tituloPosteo }}</h1>
 				<div class="entry-meta">
 						<span class="posted-on"><time class="entry-date published">{{ posteo.fechaPosteo }}</time></span>						
-						<span class="comments-link"><a href="#">Deja tu comentario</a></span>
+						{% if user.is_authenticated %}
+						<p>
+							<a href="{% url 'Editar' posteo.id %}">Editar</a> | 
+							<a href="{% url 'Eliminar' posteo.id %}">Eliminar</a>
+						</p>
+						{%endif%}
 					</div>
 				<div class="entry-thumbnail">					
 					<img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/30160348/sep4.jpg" alt="">
@@ -36,9 +41,17 @@
 				<nav class="navigation post-navigation" role="navigation">
 				<h1 class="screen-reader-text">Post navigation</h1>
 				<div class="nav-links">
+					{% if user.is_authenticated %}
 					<div class="nav-previous">
+						<a href="{% url 'TodosMisPosteos' %}" rel="prev"><span class="meta-nav">←</span> Todos mis posteos!</a><br>
+						<a href="{% url 'TodosLosPosteos' %}" rel="prev"><span class="meta-nav">←</span> Todos los posteos!</a>
+					</div>					
+					{%else%}
+					<div class="nav-previous">
+						<a href="{% url 'TodosLosPosteos' %}" rel="prev"><span class="meta-nav">←</span> Todos los posteos!</a><br>
 						<a href="{% url 'Blog' %}" rel="prev"><span class="meta-nav">←</span> Blog!</a>
 					</div>
+					{%endif%}
 				</div>
 				<!-- .nav-links -->
 				</nav>

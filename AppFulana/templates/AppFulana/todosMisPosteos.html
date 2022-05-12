@@ -10,7 +10,7 @@
         
         <article class="hentry">
         <header class="entry-header">
-        <h1 class="entry-title">HOLA, {{user}} ESTOS SON TUS POSTEOS: </h1>	        
+        <h1 class="entry-title">HOLA {{user}}, ESTOS SON TUS POSTEOS: </h1>	        
         </header>
         <!-- .entry-header -->
 
@@ -20,7 +20,7 @@
             {%if user %}
             <ul>{%for posteo in object_list%}
                 <li>
-                <p>{{posteo.tituloPosteo}} <br>
+                <p>{{posteo.fechaPosteo}} - {{posteo.tituloPosteo}}<br>
                     <a href="{% url 'PostIndividual' posteo.id %}">Ver</a> | 
                     <a href="{% url 'Editar' posteo.id %}">Editar</a> | 
                     <a href="{% url 'Eliminar' posteo.id %}">Eliminar</a>

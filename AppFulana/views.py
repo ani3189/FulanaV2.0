@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import PosteoForm
+from .forms import PosteoForm, EditarForm
 
 # Create your views here.
 
@@ -68,8 +68,8 @@ class TodosLosPosteos (ListView):
 
 class EditarPosteo (LoginRequiredMixin, UpdateView):
     model = Posteo
+    form_class = EditarForm
     success_url = "/AppFulana/TodosMisPosteos/"
-    fields = ['fechaPosteo','tituloPosteo','bodyPosteo']
 
 class EliminarPosteo (DeleteView):
     model = Posteo

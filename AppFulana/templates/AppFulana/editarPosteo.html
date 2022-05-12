@@ -1,6 +1,6 @@
 {% extends "AppFulana/padre.html" %}
 {% load static %}
-{% block title %} - Editar Posteo{% endblock %}
+{% block title %} - Editar Posteo {% endblock %}
 {% block contenidoModificable %}
 </header>
 <!-- #masthead -->
@@ -18,7 +18,7 @@
         <p>
             <form method="post">{%csrf_token%}
                 {{form.as_p}}
-                <input type="submit", value="actualizar">
+                <input type="submit" view="actualizar">
             </form>
         </p>
         <h2 style="font-family: 'Herr Von Muellerhoff';color:#ccc;font-weight:300;">Saludos, Fulana</h2>
