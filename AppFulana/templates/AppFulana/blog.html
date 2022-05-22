@@ -19,7 +19,7 @@
             </header>
             <div class="entry-summary">
                 <p>
-                    ACA VA A IR TEXTO CORTO Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nemo facilis maiores a fugiat non magni obcaecati sed numquam aperiam saepe explicabo autem corrupti dolor, eligendi sit repellendus quia iure. <a class="more-link" href="{% url 'PostIndividual' posteo.id %}">Leer más</a>
+                    {{ posteo.bodyPosteo|slice:":200"}} <a class="more-link" href="{% url 'PostIndividual' posteo.id %}">Leer más</a>
                 </p>
             </div>
             <footer class="entry-footer">
