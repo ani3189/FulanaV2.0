@@ -16,4 +16,5 @@ urlpatterns = [
     path(r'^nuevo$', views.NuevoPosteo.as_view(), name='NuevoPosteo'),
     path(r'^editar/(?P<pk>\d+)$', views.EditarPosteo.as_view(), name='Editar'),
     path(r'^eliminar/(?P<pk>\d+)$', views.EliminarPosteo.as_view(), name='Eliminar'),
+    path('registrarse', views.registrarse, name='Registrarse'),
 ]

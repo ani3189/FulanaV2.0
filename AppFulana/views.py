@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import PosteoForm, EditarForm
+from .forms import PosteoForm, EditarForm, RegistrarseForm
 
 # Create your views here.
 
@@ -30,6 +30,18 @@ def inicio_sesion(request):
         form = AuthenticationForm()
 
     return render (request, "AppFulana/iniciarSesion.html", {'form':form})
+
+def registrarse(request):
+    if request.method == 'POST':
+        form = RegistrarseForm(request.POST)
+        if form.is_valid():
+            user=form.cleaned_data['username']
+            form.save()
+            return render (request,"AppFulana/inicio.html", {'mensaje':"Usuario creado"})
+    else:
+        form = RegistrarseForm()
+
+    return render (request, 'AppFulana/registrarse.html', {'form':form})
 
 def inicio(request):
     return render (request, "AppFulana/inicio.html")
