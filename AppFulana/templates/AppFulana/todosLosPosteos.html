@@ -10,7 +10,11 @@
         
         <article class="hentry">
         <header class="entry-header">
-        <h1 class="entry-title">HOLA {{user}}, ESTOS SON TODOS LOS POSTEOS: </h1>
+        {% if user.is_authenticated %}
+        <h1 class="entry-title">{{user}}, ESTOS SON TODOS LOS POSTEOS: </h1>
+        {%else%}
+        <h1 class="entry-title">ESTOS SON TODOS LOS POSTEOS: </h1>
+        {%endif%}
         </header>
         <!-- .entry-header -->
 

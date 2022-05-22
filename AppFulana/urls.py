@@ -20,4 +20,5 @@ urlpatterns = [
     path('contacto', views.contacto, name="Contacto"),
     path('buscarAutor/', views.buscarAutor, name='buscarAutor'),
     path('autores/', views.AutoresPosteos.as_view(), name='AutoresPosteos'),
+
 ]
