@@ -10,7 +10,7 @@
         
         <article class="hentry">
         <header class="entry-header">
-        <h1 class="entry-title">HOLA {{user}}, ESTOS SON TODOS LOS POSTEOS: </h1>
+        <h1 class="entry-title">HOLA {{user}}, ESTOS SON TODOS LOS AUTORES: </h1>
         </header>
         <!-- .entry-header -->
 
@@ -18,7 +18,7 @@
         <p>
             <ul>{%for posteo in object_list%}
                 <li>
-                    <a href="{% url 'PostIndividual' posteo.id %}"><p>{{posteo.tituloPosteo}}, {{posteo.autorPosteo}}, {{posteo.fechaPosteo}}</p></a>
+                    <a href="#"><p>{{posteo.autorPosteo}}</p></a>
                 </li>
                 {%endfor%}
             </ul>

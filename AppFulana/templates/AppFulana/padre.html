@@ -38,6 +38,7 @@
 				<li><a href="{% url 'AcercaDe' %}">Acerca de mi</a></li>
 				<li><a>Posteos</a>
 				<ul class="sub-menu">
+					<li><a href="{% url 'AutoresPosteos' %}">Autores</a></li>
 					<li><a href="{% url 'TodosLosPosteos' %}">Todos los posteos</a></li>
 					{% if user.is_authenticated %}
 					<li><a href="{% url 'TodosMisPosteos' %}">Todos mis posteos</a></li>
@@ -47,7 +48,7 @@
 
 				</ul>
 				</li>
-				<li><a href="#">Contacto</a></li>
+				<li><a href="{% url 'Contacto' %}">Contacto</a></li>
 				
 			</ul>
 		</div>

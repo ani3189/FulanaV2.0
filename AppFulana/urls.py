@@ -12,9 +12,12 @@ urlpatterns = [
     path('cerrarSesion', LogoutView.as_view(template_name='AppFulana/cerrarSesion.html'), name='CerrarSesion'),
     path('TodosMisPosteos/', views.TodosMisPosteos.as_view(), name='TodosMisPosteos'),
     path('TodosLosPosteos/', views.TodosLosPosteos.as_view(), name='TodosLosPosteos'),
-    path('buscarPosteo/', views.buscarPosteo),
+    path('buscarPosteo/', views.buscarPosteo, name='buscarPosteo'),
     path(r'^nuevo$', views.NuevoPosteo.as_view(), name='NuevoPosteo'),
     path(r'^editar/(?P<pk>\d+)$', views.EditarPosteo.as_view(), name='Editar'),
     path(r'^eliminar/(?P<pk>\d+)$', views.EliminarPosteo.as_view(), name='Eliminar'),
     path('registrarse', views.registrarse, name='Registrarse'),
+    path('contacto', views.contacto, name="Contacto"),
+    path('buscarAutor/', views.buscarAutor, name='buscarAutor'),
+    path('autores/', views.AutoresPosteos.as_view(), name='AutoresPosteos'),
 ]

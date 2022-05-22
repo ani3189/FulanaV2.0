@@ -7,7 +7,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import PosteoForm, EditarForm, RegistrarseForm
 
@@ -58,6 +58,8 @@ def acercaDe(request):
 class BlogVista (ListView):
     model = Posteo
     template_name = "AppFulana/blog.html"
+    paginate_by = 6
+    ordering = ['-fechaPosteo']
 
 class PostIndividual (DetailView):
     model = Posteo
@@ -78,6 +80,10 @@ class TodosLosPosteos (ListView):
     model = Posteo
     template_name = "AppFulana/todosLosPosteos.html"
 
+class AutoresPosteos (ListView):
+    model = Posteo
+    template_name = "AppFulana/autores.html"
+
 class EditarPosteo (LoginRequiredMixin, UpdateView):
     model = Posteo
     form_class = EditarForm
@@ -96,5 +102,20 @@ def buscarPosteo (request):
         posteos =  Posteo.objects.filter(bodyPosteo__icontains=palabra)
         return render (request, "AppFulana/buscarPosteo.html", {'palabra':palabra, 'posteos':posteos})
     else:
-        respuesta = "no enviaste datos"
-    return HttpResponse(respuesta)
+        respuesta = "No se encontraron posteos"
+    return render (request, "AppFulana/buscarPosteo.html", {'respuesta':respuesta})
+
+def busquedaAutor (request):
+    return render (request, "AppFulana/todosLosPosteos.html")
+
+def buscarAutor (request):
+    if request.GET['autor']:
+        autor = request.GET ['autor']
+        posteos =  Posteo.objects.filter(autorPosteo__username__icontains=autor)
+        return render (request, "AppFulana/buscarAutor.html", {'autor':autor, 'posteos':posteos})
+    else:
+        respuesta = "No se encontraron posteos"
+    return render (request, "AppFulana/buscarAutor.html", {'respuesta':respuesta})
+
+def contacto (request):
+    return render (request, "AppFulana/contacto.html")

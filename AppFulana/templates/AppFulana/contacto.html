@@ -1,0 +1,52 @@
+{% extends "AppFulana/padre.html" %}
+{% load static %}
+{% block contenidoModificable %}
+
+PRUEBAS
+
+<div id="content" class="site-content">
+    <div id="primary" class="content-area column full">
+        <main id="main" class="site-main">
+        <article id="post-39" class="post-39 page type-page status-publish hentry">
+        <header class="entry-header">
+        <h1 class="entry-title">Contacto</h1>
+        </header>
+        <!-- .entry-header -->
+        <div class="entry-content">
+                
+               
+            <div class="wpcmsdev-columns">
+                <div class="column column-width-one-half">
+                    <h4>Mensaje</h4>						
+                    
+                    <form class="wpcf7" method="post" action="contact.php" id="contactform">
+                        <div class="form">
+                            <p><input type="text" name="name" placeholder="Nombre *"></p>
+                            <p><input type="text" name="email" placeholder="Email *"></p>
+                            <p><textarea name="comment" rows="3" placeholder="Mensaje *"></textarea></p>
+                            <input type="submit" id="submit" class="clearfix btn" value="Send">
+                        </div>
+                    </form>
+                    <div class="done">								
+                        Tu mensaje fue enviado. Gracias!
+                    </div>
+                    
+                </div>
+                <div class="column column-width-one-half">
+                    <h4>Enviame tu consulta</h4>
+                    <p>
+                        Por favor enviame tu consulta, en breve me pondré en contacto con vos! Podes agregar el link del github si así lo deseas. <br> Suerte en tu elige tu propia aventura!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- .entry-content -->
+        </article>
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
+</div>
+<!-- #content -->
+</div>
+{% endblock %}
