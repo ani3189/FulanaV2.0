@@ -10,7 +10,6 @@ Falta habilitar:
 - Click en autor a todos sus posteos
 - Contacto
 - Comentarios
-- Registrate
 - Editar usuario
 - Fotos
 
