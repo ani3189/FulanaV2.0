@@ -4,14 +4,12 @@ Fulana - blogfulana
 Profe - profecoder
 
 Falta habilitar:
-- En Blog poner solo los ultimos 6 posteos
-- Buscar por autor de posteo
-- Lista por autor
+- Lista por autor - arreglar
 - Click en autor a todos sus posteos
 - Contacto
 - Comentarios
 - Editar usuario
-- Fotos
+- Fotos/avatar
 
 Prueba template: Se eliminará, existe sólo para probar templates de html
 
