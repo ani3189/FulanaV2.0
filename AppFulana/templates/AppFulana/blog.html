@@ -19,7 +19,7 @@
             </header>
             <div class="entry-summary">
                 <p>
-                    {{ posteo.bodyPosteo|slice:":200"}} <a class="more-link" href="{% url 'PostIndividual' posteo.id %}">Leer más</a>
+                    {{ posteo.bodyPosteo|slice:":200"|safe}} <a class="more-link" href="{% url 'PostIndividual' posteo.id %}">Leer más</a>
                 </p>
             </div>
             <footer class="entry-footer">

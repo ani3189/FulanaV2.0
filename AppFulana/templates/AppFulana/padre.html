@@ -22,7 +22,7 @@
 			<h2 class="site-description">Una fulana aprendiendo a programar</h2>
 			<div>
 				{% if user.is_authenticated %}
-				<a href="{% url 'CerrarSesion' %}"}>Cerrar sesion</a> | <a href=#>Editar Perfil</a>
+				<a href="{% url 'CerrarSesion' %}"}>Cerrar sesion</a> | <a href="{% url 'EditarPerfil' %}">Editar Perfil</a>
                 {%else%}	
 				<a href="{% url 'InicioSesion' %}"}>Iniciar sesion</a> | <a href="{% url 'Registrarse' %}">Registrate</a>
 				{%endif%}

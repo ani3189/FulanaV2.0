@@ -6,7 +6,6 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import PosteoForm, EditarForm
@@ -56,10 +55,11 @@ class EliminarPosteo (DeleteView):
     model = Posteo
     success_url = "/AppFulana/TodosMisPosteos/"
 
+# habilitar cuando sepa como pasar el args con un path con (r'^(?P<pk>\d+)$')
 # def like (request, pk):
 #     posteo = get_object_or_404(Posteo, id=request.POST.get('posteo_id'))
-#     posteo.like.add(request.Usuarios)
-#     return HttpResponseRedirect(reverse(PostIndividual, args=[str(pk)]))
+#     posteo.likes.add(request.user)
+#     return HttpResponseRedirect(reverse(PostIndividual, args=(r'^(?P<pk>\d+)$')))
 
 def busquedaPosteo (request):
     return render (request, "AppFulana/todosLosPosteos.html")
