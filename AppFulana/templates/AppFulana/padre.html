@@ -22,7 +22,7 @@
 			<h2 class="site-description">Una fulana aprendiendo a programar</h2>
 			<div>
 				{% if user.is_authenticated %}
-				<a href="{% url 'CerrarSesion' %}"}>Cerrar sesion</a> | <a href="#">Editar Perfil</a>
+				<a href="{% url 'CerrarSesion' %}"}>Cerrar sesion</a> | <a href=#>Editar Perfil</a>
                 {%else%}	
 				<a href="{% url 'InicioSesion' %}"}>Iniciar sesion</a> | <a href="{% url 'Registrarse' %}">Registrate</a>
 				{%endif%}
@@ -34,11 +34,8 @@
 			<ul id="menu-menu-1" class="menu">
 				<li><a href="{% url 'Inicio' %}">Inicio</a></li>
 				<li><a href="{% url 'Blog' %}">Blog</a></li>
-				<li><a href="{% url 'PruebasTemplate' %}">Pruebas Template</a></li>
-				<li><a href="{% url 'AcercaDe' %}">Acerca de mi</a></li>
 				<li><a>Posteos</a>
 				<ul class="sub-menu">
-					<li><a href="{% url 'AutoresPosteos' %}">Autores</a></li>
 					<li><a href="{% url 'TodosLosPosteos' %}">Todos los posteos</a></li>
 					{% if user.is_authenticated %}
 					<li><a href="{% url 'TodosMisPosteos' %}">Todos mis posteos</a></li>
@@ -48,8 +45,7 @@
 
 				</ul>
 				</li>
-				<li><a href="{% url 'Contacto' %}">Contacto</a></li>
-				
+				<li><a href="{% url 'AcercaDe' %}">Acerca de mi</a></li>
 			</ul>
 		</div>
 		</nav>

@@ -18,7 +18,7 @@
         <p>
             <form method="post">{%csrf_token%}
                 {{form.as_p}}
-                <input type="submit" value="publicar">
+                <input type="submit" value="Publicar">
             </form>
         </p>
         <h2 style="font-family: 'Herr Von Muellerhoff';color:#ccc;font-weight:300;">Saludos, Fulana</h2>
@@ -33,5 +33,8 @@
 <!-- #content -->
 </div>
 <!-- .container -->
-
+        <script>
+            var nombre = "{{user.id}}";
+            document.getElementById("usuarioPosteo").value = nombre;
+        </script>
 {% endblock %}

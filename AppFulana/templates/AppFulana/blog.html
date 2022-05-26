@@ -14,7 +14,7 @@
             <h1 class="entry-title"><a href="{% url 'PostIndividual' posteo.id %}" rel="bookmark">{{ posteo.tituloPosteo }}</a></h1>
             <div class="entry-meta">
                 <span class="posted-on"><time class="entry-date published">{{ posteo.fechaPosteo }}</time></span>
-                <span class="comments-link"><a href="#">Deja tu comentario</a></span>						
+                					
             </div>
             </header>
             <div class="entry-summary">
@@ -24,7 +24,7 @@
             </div>
             <footer class="entry-footer">
             <span class="cat-links">
-            Posteado por <a href="#" rel="category tag">{{posteo.autorPosteo}}</a>
+            Posteado por {{posteo.autorPosteo}}
             </span>
             </footer>
             </article>

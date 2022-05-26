@@ -11,7 +11,8 @@ class PosteoForm(forms.ModelForm):
         widgets = {
             'fechaPosteo': forms.DateInput(attrs={'class':"wpcf7", 'placeholder':'AAAA-MM-DD'}),
             'tituloPosteo': forms.TextInput(attrs={'class':"wpcf7"}), 
-            'autorPosteo': forms.Select(attrs={'class':"wpcf7"}), 
+            'autorPosteo': forms.TextInput(attrs={'class':"wpcf7", 'value':'', 'id':'usuarioPosteo', 'type':'hidden'}),
+            #'autorPosteo': forms.Select(attrs={'class':"wpcf7"}), 
             'bodyPosteo': forms.Textarea(attrs={'class':"wpcf7"}),
         }
 
@@ -24,12 +25,3 @@ class EditarForm(forms.ModelForm):
             'tituloPosteo': forms.TextInput(attrs={'class':"wpcf7"}), 
             'bodyPosteo': forms.Textarea(attrs={'class':"wpcf7"}),
         }
-
-class RegistrarseForm(UserCreationForm):
-    username = forms.CharField()
-    mail = forms.EmailField()
-    password1 = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Repetir contraseña", widget=forms.PasswordInput)
-    class Meta:
-        model = User
-        fields = ['username', 'mail', 'password1', 'password2']
