@@ -3,8 +3,10 @@ superuser FulanaV2
 Fulana - blogfulana
 Profe - profecoder
 
+Se utiliza una libreria adicional:
+pip install django-ckeditor
+
 Falta :
-- Editar usuario
-- Fotos/avatar
+- Fotos/avatar --> arreglar
 
 
