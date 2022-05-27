@@ -7,7 +7,5 @@ Profe - profecoder
 Se utiliza una libreria adicional:
 pip install django-ckeditor
 
-Falta :
-- Fotos/avatar --> arreglar
 
 
