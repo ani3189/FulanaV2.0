@@ -1,4 +1,6 @@
 # FulanaV2.0
+Alumna: Ana Simone
+
 superuser FulanaV2
 Fulana - blogfulana
 
