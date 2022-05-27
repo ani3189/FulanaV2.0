@@ -1,5 +1,6 @@
 {% extends "AppFulana/padre.html" %}
 {% load static %}
+{% block title %} - Editar perfil {% endblock %}
 {% block contenidoModificable %}
 </header>
 <!-- #masthead -->
@@ -16,9 +17,9 @@
         <div class="entry-content">
         <p><img style="border:10px solid #f4f5f6" src="{%static 'AppFulana/images/woman-5660790_960_720.webp' %}" alt="woman" width="430" class="alignright"></p>
         <p>
-            <form action="" method="POST">{%csrf_token%}
-                {{form.as_p}}
-                <button type="submit">Actualizar</button>
+            <form method="post">{%csrf_token%}
+                {{miFormulario.as_p}}
+                <input type="submit" value="Actualizar">
             </form>
         </p>
         <h2 style="font-family: 'Herr Von Muellerhoff';color:#ccc;font-weight:300;">Saludos, Fulana</h2>

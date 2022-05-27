@@ -1,23 +1,22 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import Template, Context, loader
+from django.shortcuts import render
 from .models import *
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import PosteoForm, EditarForm
-from django.urls import reverse
 
-# Create your views here.
+# vista de inicio
 
 def inicio(request):
-    return render (request, "AppFulana/inicio.html")
+    return render (request, "AppFulana/inicio.html") 
     
+# vista de acerca de mi
+     
 def acercaDe(request):
     return render (request, "AppFulana/acercaDe.html")
+
+# vista de la página blog donde se muestran los últimos 6 posteos y un slice del post
 
 class BlogVista (ListView):
     model = Posteo
@@ -25,9 +24,13 @@ class BlogVista (ListView):
     ordering = ['-fechaPosteo']
     paginate_by = 6
 
+# vista del posteo individual con botón eliminar y editar si corresponde al usuario
+
 class PostIndividual (DetailView):
     model = Posteo
     template_name = "AppFulana/posteoIndividual.html"
+
+# vista de los posteos del usuario logueado
 
 class TodosMisPosteos (LoginRequiredMixin, ListView):
     model = Posteo
@@ -35,31 +38,34 @@ class TodosMisPosteos (LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Posteo.objects.filter(autorPosteo=self.request.user)
 
+# vista para crear un nuevo posteo del usuario logueado
+
 class NuevoPosteo (LoginRequiredMixin, CreateView, User):
     model = Posteo
     form_class = PosteoForm
     success_url = "/AppFulana/TodosMisPosteos/"
+
+# vista de todos los posteos de todos los usuarios
 
 class TodosLosPosteos (ListView):
     model = Posteo
     template_name = "AppFulana/todosLosPosteos.html"
     ordering = ['-fechaPosteo']
 
+# vista para editar un posteo
 
 class EditarPosteo (LoginRequiredMixin, UpdateView):
     model = Posteo
     form_class = EditarForm
     success_url = "/AppFulana/TodosMisPosteos/"
 
+# vista para eliminar un posteo
+
 class EliminarPosteo (DeleteView):
     model = Posteo
     success_url = "/AppFulana/TodosMisPosteos/"
 
-# habilitar cuando sepa como pasar el args con un path con (r'^(?P<pk>\d+)$')
-# def like (request, pk):
-#     posteo = get_object_or_404(Posteo, id=request.POST.get('posteo_id'))
-#     posteo.likes.add(request.user)
-#     return HttpResponseRedirect(reverse(PostIndividual, args=(r'^(?P<pk>\d+)$')))
+# vista para buscar un posteo
 
 def busquedaPosteo (request):
     return render (request, "AppFulana/todosLosPosteos.html")
@@ -72,6 +78,8 @@ def buscarPosteo (request):
     else:
         respuesta = "No se encontraron posteos"
     return render (request, "AppFulana/buscarPosteo.html", {'respuesta':respuesta})
+
+# vista para buscar un autor
 
 def busquedaAutor (request):
     return render (request, "AppFulana/todosLosPosteos.html")

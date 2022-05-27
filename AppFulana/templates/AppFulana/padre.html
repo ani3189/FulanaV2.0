@@ -22,6 +22,12 @@
 			<h2 class="site-description">Una fulana aprendiendo a programar</h2>
 			<div>
 				{% if user.is_authenticated %}
+				{% with first_image=user.avatar_set.first %}
+					{% if first_image %}
+					<a href="{{ first_image.image.url }}" target="_blank">
+					<img src="{{ first_image.image.url }}" alt="avatar" class="" height="40px" >
+					{%endif%}
+				{%endwith%}
 				<a href="{% url 'CerrarSesion' %}"}>Cerrar sesion</a> | <a href="{% url 'EditarPerfil' %}">Editar Perfil</a>
                 {%else%}	
 				<a href="{% url 'InicioSesion' %}"}>Iniciar sesion</a> | <a href="{% url 'Registrarse' %}">Registrate</a>

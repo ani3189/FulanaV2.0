@@ -13,5 +13,4 @@ urlpatterns = [
     path(r'^editar/(?P<pk>\d+)$', views.EditarPosteo.as_view(), name='Editar'),
     path(r'^eliminar/(?P<pk>\d+)$', views.EliminarPosteo.as_view(), name='Eliminar'),
     path('buscarAutor/', views.buscarAutor, name='buscarAutor'),
-    #path('like/<int:pk>', views.like, name='like_posteo'), --> habilitar cuando sepa hacer el redirect en el view
 ]

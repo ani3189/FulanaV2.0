@@ -253,9 +253,8 @@ hr {
 	margin-top: 1.5em;
 }
 img {
-	height:auto;
+	height:40px;
 	/* Make sure images are scaled correctly. */
-	max-width:100%;
 	/* Adhere to container width. */
 }
 ul,ol {

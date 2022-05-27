@@ -7,7 +7,9 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
+# Vista para iniciar sesión
+
 def inicio_sesion(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data = request.POST)
@@ -26,14 +28,17 @@ def inicio_sesion(request):
 
     return render (request, "registration/iniciarSesion.html", {'form':form})
 
-# Opción de registro V2
+# Vista para registrarse usando clases Opción V2
+
 class Registrarse(generic.CreateView):
     form_class = RegistrarseForm
     template_name = 'registration/registrarse.html'
     success_url = reverse_lazy('InicioSesion')
 
+# Vista para editar usuario
+
 @login_required
-def editar_usuario (request): # --->  cambiar a UserChangeForm para ver si funciona
+def editar_usuario (request): 
     usuario = request.user
     if request.method == "POST":
         miFormulario = RegistrarseForm(request.POST)
@@ -56,8 +61,7 @@ def editar_usuario (request): # --->  cambiar a UserChangeForm para ver si funci
 
     return render (request, "registration/editarPerfil.html",{'miFormulario':miFormulario, 'usuario':usuario.username, 'email':usuario.email})
 
-# Opción de registro V1
-
+# Vista para registrarse Opción V1 
 # def registrarse(request):
 #     if request.method == 'POST':
 #         form = RegistrarseForm(request.POST)

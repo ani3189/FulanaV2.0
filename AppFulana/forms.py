@@ -4,6 +4,8 @@ from .models import Posteo
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+# formulario para crear nuevo posteo
+
 class PosteoForm(forms.ModelForm):
     class Meta:
         model = Posteo
@@ -15,6 +17,8 @@ class PosteoForm(forms.ModelForm):
             #'autorPosteo': forms.Select(attrs={'class':"wpcf7"}), 
             'bodyPosteo': forms.Textarea(attrs={'class':"wpcf7"}),
         }
+
+# formulario para editar posteo
 
 class EditarForm(forms.ModelForm):
     class Meta:
