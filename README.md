@@ -3,13 +3,10 @@ superuser FulanaV2
 Fulana - blogfulana
 Profe - profecoder
 
-Falta habilitar:
-- Lista por autor - arreglar
-- Click en autor a todos sus posteos
-- Contacto
-- Comentarios
-- Editar usuario
-- Fotos/avatar
+Se utiliza una libreria adicional:
+pip install django-ckeditor
 
-Prueba template: Se eliminará, existe sólo para probar templates de html
+Falta :
+- Fotos/avatar --> arreglar
+
 
